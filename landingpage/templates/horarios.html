@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block mural %}active{% endblock %}
+{% block main %}
+<section>
+  <div class="row">
+    <div class="col">
+      <a href="{% url 'mural' %}" class="btn">Voltar</a>
+    </div>
+  </div>
+  <riv class="row">
+    <div class="col d-flex flex-column">
+      
+      
+      <table class="table table-striped text-left">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Matéria</th>
+            <th scope="col">Monitor</th>
+            <th scope="col">Horários</th>
+            <th></th>
+          </tr>
+        </thead>   
+        <tbody class="border-0">
+          <tr class="border-0">
+            <td scope="col"></td>
+            <th scope="col">
+              <h4 class="text-uppercase">Cálculo 1</h4>
+            </th>
+            <td scope="col">Luís Eduardo Cordeiro Salarini</td>
+            <td scope="col">
+              <p>Seg - 12:00 até 15:00</p>
+              <p>Ter - 12:00 até 15:00</p>
+              <p>Qui - 18:00 até 20:00</p>
+            </td>
+            <td></td>
+          </tr>
+          <tr class="border-0">
+            <td scope="col"></td>
+            <td scope="col">
+              <h4 class="text-uppercase">
+                Geometria Analítica
+              </h4>
+              </td>
+            <td scope="col">MAtheus Fibger</td>
+            <td scope="col">
+              <p>Seg - 12:00 até 15:00</p>
+              <p>Ter - 12:00 até 15:00</p>
+              <p>Qui - 18:00 até 20:00</p>
+            </td>
+            <td></td>
+          </tr>
+        </tbody>       
+      </table>
+
+    </div>
+  </riv>
+</section>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block transparencia %}active{% endblock %}
+{% block main %}
+<section class="section section-sm section-bottom-70 section-fluid bg-default">
+  <div class="container-fluid">
+    <h2>TRANSPARÊNCIA CAFÍS</h2>
+    <div class="row row-50 row-sm">
+      {% for t in transparencias %}
+      <div class="col-md-6 col-xl-4">
+        <!-- Quote Modern-->
+        <article class="quote-modern quote-modern-custom">
+          <div class="unit unit-spacing-md align-items-center">
+            <div class="unit-left"><a class="quote-modern-figure"><img class="img-circles" src="/static/images/icones/money.png" alt="" width="75" height="75"/></a></div>
+            <div class="unit-body">
+              <h4 class="quote-modern-cite"><a>{{t.titulo}}</a></h4>
+              <p class="quote-modern-status {% if t.tipo == '-' %}retirada{% endif %}">{{t.tipo}}R$ <span class="valor">{{t.valor}}</span></p>
+            </div>
+          </div>
+          <div class="quote-modern-text">
+            <p class="q">
+              {{t.descricao}}
+            </p>
+          </div>
+        </article>
+      </div>
+      {% endfor %}      
+    </div>
+  </div>  
+</section>
+<script>
+  function mascaraReal(value){
+      let number = String(value).split("");
+      let real = number.length - 2;
+      number.splice(real, 0, ",");
+      let count = 0; 
+      let ignorepoint = 0; //pra regular o loop e os pontinhos adicionados não atrapalharem
+      let tick =1; //quantidade de vezes que passou no if
+      for(i=real-1; i>=0; i--){
+          count++;
+          if(count == 3){ 
+              number.splice(number.length - count - 3*tick - ignorepoint, 0, ".");
+              tick++;
+              count = 0;
+              ignorepoint++;
+          }
+      }
+      if(number[0] == "."){
+          number.shift();
+      }
+      let final = number.join("");
+      return final;
+  }
+  function mascarar(){
+    valores=document.getElementsByClassName('valor')
+    for(i in valores){
+      if  (i in ['length', 'item', 'namedItem']){
+        if (i!='length'){
+          valores[i].innerText=mascaraReal(valores[i].innerText)
+        }        
+      }
+      
+    }
+  }
+  window.onload = function() {
+    const myTimeout = setTimeout(mascarar, 300);
+  };
+</script>
+{% endblock %}
