@@ -69,7 +69,7 @@
         <div class="row">
           <div class="col wow fadeInRight d-flex" style="height: 35vh;">
             <h1 class="m-auto">
-              Mural de Notícias
+              MURAL DE NOTÍCIAS
             </h1>
             <!-- <article class="box-icon-modern box-icon-modern-custom">
               <div>
@@ -112,7 +112,7 @@
           <div class="row row-30 justify-content-center">
             {% for noticia in murais %}
             <div class="col-sm-6 col-md-5 col-lg-6 col-xl-3 wow fadeInLeft">
-              <a class="d-flex flex-column justify-content-center" href="#{{noticia.id}}">
+              <a class="d-flex flex-column justify-content-center" href="{% url 'mural_exibir_noticia' noticia.id %}">
                 <b class="text-titulo">
                   {{noticia.titulo}}
                 </b>
@@ -141,7 +141,7 @@
             <h3 class="wow fadeInLeft">Acesse nossa biblioteca!</h3>
             <p class="bg-acervo">Tentamos manter provas antigas, listas e alguns livros disponiveis.</p>
             <div class="group-sm group-middle group justify-content-end">                    
-              <a class="button button-white-outline button-ujarak" href="#">ACESSASR BIBLIOTECA</a></div>
+              <a class="button button-white-outline button-ujarak" href="{% url 'biblioteca' %}">ACESSASR BIBLIOTECA</a></div>
           </div>
         </div>
       </div>
@@ -278,7 +278,7 @@
 {% if artigo %}
 <section class="section section-sm bg-default" id="news">
   <div class="container">
-    <h2>Últimos artigos pulicados</h2>
+    <h2>ÚLTIMOS ARTIGOS PUBLICADOS</h2>
     <div class="row row-45">
       {% for a in artigos %}
       <div class="col-sm-6 col-lg-4 wow fadeInLeft">

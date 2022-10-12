@@ -22,37 +22,24 @@
           </tr>
         </thead>   
         <tbody class="border-0">
+          {% for monitoria in monitorias %}
           <tr class="border-0">
             <td scope="col"></td>
             <th scope="col">
-              <h4 class="text-uppercase">Cálculo 1</h4>
+              <h4 class="text-uppercase">{{monitoria.materia}}</h4>
             </th>
-            <td scope="col">Luís Eduardo Cordeiro Salarini</td>
+            <td scope="col">{{monitoria.monitor}}</td>
             <td scope="col">
-              <p>Seg - 12:00 até 15:00</p>
-              <p>Ter - 12:00 até 15:00</p>
-              <p>Qui - 18:00 até 20:00</p>
+              {% for horario in monitoria.horarios.all %}
+              <p>{{horario}}</p>
+              {% endfor %}
             </td>
             <td></td>
-          </tr>
-          <tr class="border-0">
-            <td scope="col"></td>
-            <td scope="col">
-              <h4 class="text-uppercase">
-                Geometria Analítica
-              </h4>
-              </td>
-            <td scope="col">MAtheus Fibger</td>
-            <td scope="col">
-              <p>Seg - 12:00 até 15:00</p>
-              <p>Ter - 12:00 até 15:00</p>
-              <p>Qui - 18:00 até 20:00</p>
-            </td>
-            <td></td>
-          </tr>
+          </tr>       
+          {% endfor %}   
         </tbody>       
       </table>
-
+      <div style="height: 100px;"></div>
     </div>
   </riv>
 </section>

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block mural %}active{% endblock %}
+{% block main %}
+<section class="section section-sm section-first bg-default">
+    <div class="container pb-5">       
+        <div id="mural" class="row">
+            <div class="col-lg-6 col-xl-12 text-start text-justify">            
+                <h1 class="text-center m-auto">
+                    {{noticia.titulo}}
+                </h1>       
+                <div class="mt-5">
+                    {{noticia.corpo}}    
+                </div>        
+                <div style="height: 100px;"></div>
+            </div>
+        </div>
+    </div>
+  </section>
+<script>
+  window.onload = function() {
+   
+  };
+</script>
+{% endblock %}

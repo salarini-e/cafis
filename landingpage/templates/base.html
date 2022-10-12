@@ -18,7 +18,7 @@
   <body>    
     <div class="preloader">
       <div class="preloader-body">
-        <div class="/static/cssload-container"><span></span><span></span><span></span><span></span>
+        <div class="cssload-container"><span></span><span></span><span></span><span></span>
         </div>
       </div>
     </div>
@@ -52,7 +52,7 @@
                       <ul class="rd-navbar-nav">
                         <li class="rd-nav-item {% block home %}{% endblock %}"><a class="rd-nav-link" href="/">Home</a></li>
                         <li class="rd-nav-item {% block mural %}{% endblock %}"><a class="rd-nav-link" href="{% url 'mural' %}">Mural</a></li>                        
-                        <li class="rd-nav-item {% block artigos %}{% endblock %}"><a class="rd-nav-link" href="#">Artigos</a></li>                        
+                        <li class="rd-nav-item {% block artigos %}{% endblock %}"><a class="rd-nav-link" href="{% url 'artigos' %}">Artigos</a></li>                        
                         <li class="rd-nav-item {% block biblioteca %}{% endblock %}"><a class="rd-nav-link" href="{% url 'biblioteca' %}">Nossa Biblioteca</a></li>
                         <!-- <li class="rd-nav-item"><a class="rd-nav-link" href="#">Documentos</a></li> -->
                         <li class="rd-nav-item {% block transparencia %}{% endblock %}"><a class="rd-nav-link" href="{% url 'transparencia' %}">Transparência</a></li>                        

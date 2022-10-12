@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block artigos %}active{% endblock %}
+{% block main %}
+<section class="section section-sm section-first bg-default text-center">
+    <div class="container pb-5">
+      <div class="row row-30 justify-content-center">        
+        <div class="col">
+          <div class="row">
+            <div class="col wow fadeInRight d-flex" style="height: 35vh;">
+              <h1 class="m-auto">
+                ARTIGOS
+              </h1>             
+            </div>            
+          </div>
+        </div>
+      </div>
+      <div id="mural" class="row">
+        <div class="col-lg-6 col-xl-12 align-self-center">
+            <div class="row row-30 justify-content-center">
+              {% for a in artigos %}
+              <div class="col-sm-6 col-lg-4 wow fadeInLeft">
+                <!-- Post Modern-->
+                <article class="post post-modern"><a class="post-modern-figure" href="{% url 'artigos_exibir_artigo' a.id %}"><img src="/media/{{a.img.name}}" alt="" width="370" height="307"/>
+                    <div class="post-modern-time">
+                      <time datetime="{{artigo.dt_inclusao}}">
+                        <span class="post-modern-time-month">{{a.dt_inclusao|date:"d"}}</span>
+                        <span class="post-modern-time-number">{{a.dt_inclusao|date:"m"}}</span>
+                      </time>
+                    </div></a>
+                  <h4 class="post-modern-title"><a href="#">{{a.titulo}}</a></h4>
+                  <p class="post-modern-text text-justify">{{a.corpo|slice:":150"}}</p>
+                </article>
+              </div>
+              {% endfor %}          
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+<script>
+  window.onload = function() {
+   
+  };
+</script>
+{% endblock %}
