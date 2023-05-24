@@ -1,23 +1,28 @@
 from django.shortcuts import render
 from .models import *
-
+from datetime import datetime
 # Create your views here.
 def index(request):
     
     sessions=LandpageSessions.objects.get(id=1)
+    ano_atual = datetime.now().year
+    diferenca_anos = ano_atual - 2017
 
     #pegar representantes e inserir no template
+    
+
     representantes={
-        'presidente': None,
-        'vice': None,
-        'tesoureiro': None,
-        'comunicacao': None
+        'presidente': Representantes_Atuais.objects.get(cargo='Presidente'),
+        'vice': Representantes_Atuais.objects.get(cargo='Vice Presidente'),
+        'tesoureiro': Representantes_Atuais.objects.get(cargo='Tesoureiro'),
+        'comunicacao': Representantes_Atuais.objects.get(cargo='Chefe de Comunicação'),
         }
 
     context={
-        'murais': Mural_de_Noticias.objects.all(),
-        'artigos': Artigos.objects.all(),
-        'transparencias': Transparencia.objects.all(),        
+        'diferenca_anos': diferenca_anos,
+        'murais': Mural_de_Noticias.objects.all().order_by('-id'),
+        'artigos': Artigos.objects.all().order_by('-id')[:6],
+        'transparencias': Transparencia.objects.all().order_by('-id')[:4],        
         'mural': sessions.exibir_mural,
         'biblioteca': sessions.exibir_biblioteca,
         'artigo': sessions.exibir_artigo,
