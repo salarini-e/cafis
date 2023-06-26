@@ -109,3 +109,10 @@ class Monitoria(models.Model):
 
     def __str__(self):
         return ' %s - %s' % (self.materia, self.monitor)
+
+class Slide(models.Model):
+    nome_do_sliede=models.CharField(max_length=100)
+    img=models.ImageField(upload_to = 'slides')
+    
+    def __str__(self):
+        return '%s - %s' % (self.nome_do_sliede, self.img.url)
